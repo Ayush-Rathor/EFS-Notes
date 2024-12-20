@@ -1,0 +1,76 @@
+🌐 Amazon EFS and Related AWS Services  
+
+---
+
+# 🎯 Objective  
+Understand the relationship between Amazon EFS and other AWS services by exploring key integrations and their benefits.  
+
+---
+
+ 🔗 Amazon EFS Service Integrations  
+Amazon EFS integrates with multiple AWS services for enhanced access control, monitoring, backup, and compute capabilities.  
+
+---
+
+# 🖥️ AWS Modern Compute Services and Amazon EFS  
+- Why Integration Matters:  
+  - Migrating applications to containers and serverless platforms simplifies operations, reduces costs, and ensures elastic scaling.  
+- Key Integrations:  
+  - Amazon ECS  
+  - Amazon EKS  
+  - AWS Fargate  
+  - AWS Lambda  
+- Benefits:  
+  - Applications requiring shared persistent storage can use elastic and serverless storage.  
+  - Simplifies migration from self-managed storage to modern infrastructure.  
+- Example with Lambda:  
+  - Parse large files seamlessly by leveraging Amazon EFS as a shared, persistent storage layer.  
+  - Enables Lambda to handle larger datasets beyond its 512 MB temporary disk space.  
+
+---
+
+# 💾 Amazon EFS and Lambda Integration  
+- Without Amazon EFS:  
+  - Persistent datasets larger than 512 MB were unsupported.  
+  - Shared data across Lambda functions was unavailable.  
+- With Amazon EFS:  
+  - Load libraries and data files during the first invocation.  
+  - Manage large files (e.g., unzipping a 1 GB file) with ease using a few lines of code.  
+  - Set an Amazon EFS file system as the local mount path directly in the Lambda console.  
+
+---
+
+# 🔒 Amazon EFS and AWS Backup  
+- Features:  
+  - Enables automatic backups for file systems via the EFS console, API, or AWS CLI.  
+  - Uses default backup vaults and recommended settings for automation.  
+- AWS Backup Benefits:  
+  - Simplifies creation, migration, restoration, and deletion of backups.  
+  - Provides detailed reporting and auditing for backup activities.  
+- Requirements:  
+  - File systems must be in a region where AWS Backup is available.  
+
+---
+
+# 📊 Amazon EFS and Monitoring: CloudWatch Integration  
+- Key Questions Answered:  
+  - How to determine throughput?  
+  - How to track connected EC2 instances?  
+- Features:  
+  - Real-time metrics collection and processing at no extra cost.  
+  - Historical data storage for 15 months to analyze performance trends.  
+- Ways to Use CloudWatch with Amazon EFS:  
+  1. View metrics in the Amazon EFS console.  
+  2. Create alerts in the CloudWatch console.  
+  3. Retrieve data via the CloudWatch CLI.  
+  4. Integrate with the CloudWatch API.  
+
+---
+
+ 🚀 Summary  
+Amazon EFS’s integration with key AWS services like Lambda, ECS, EKS, Fargate, AWS Backup, and CloudWatch enables:  
+- Efficient application modernization.  
+- Simplified data management and backups.  
+- Robust monitoring for performance optimization.  
+
+These integrations position Amazon EFS as an ideal solution for scalable, shared, and serverless storage. 🌟

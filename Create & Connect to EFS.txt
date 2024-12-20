@@ -1,0 +1,84 @@
+How to Create a Network File System on AWS  
+This guide walks you through creating a Network File System using Amazon Elastic File System (Amazon EFS). You'll store files in the cloud, launch a Linux virtual machine on Amazon Elastic Compute Cloud (EC2), and mount the file system. All steps are Free Tier eligible.  
+
+---
+
+ Steps to Create a Network File System  
+
+# Step 1: Create a File System  
+1. Open the Amazon EFS console.  
+2. Click Create file system.  
+3. Ensure the default VPC is selected in the Virtual Private Cloud (VPC) dropdown.  
+4. Accept all default settings and click Create.  
+
+---
+
+# Step 2: Create and Configure a Virtual Machine with Amazon EC2  
+To access your file system, create an EC2 instance and mount your Amazon EFS file system at launch.  
+
+1. Launch EC2 Instance:  
+   - Open the Amazon EC2 console.  
+   - Go to the Instances page and click Launch Instances.  
+
+2. Select Amazon Linux AMI:  
+   - Choose an Amazon Machine Image (AMI).  
+   - Select Amazon Linux AMI.  
+
+3. Choose Instance Type:  
+   - Ensure t2.micro is selected (Free Tier eligible).  
+   - Click Next: Configure Instance Details.  
+
+4. Configure Instance Details:  
+   - Scroll to File systems and click Add file system.  
+   - Select the file system you created earlier. Keep default settings, including security group settings.  
+   - Click Review and Launch.  
+
+5. Set Up Key Pair:  
+   - Choose an existing key pair or create a new one.  
+     - If creating a new key pair:  
+       - Name it MyKeyPair.  
+       - Click Download Key Pair and save it securely.  
+   - Click Launch Instances.  
+
+6. View Instance Status:  
+   - Click View Instances to monitor the status of your instance.  
+
+---
+
+# Step 3: Connect to Your Instance  
+1. Click Connect on the EC2 Instances page.  
+2. Ensure the EC2 Instance Connect tab is selected.  
+3. Click Connect to open a terminal in a new browser window.  
+
+---
+
+# Step 4: Confirm Your Amazon EFS System is Mounted  
+1. Wait for the startup script to mount your Amazon EFS file system. This may take a couple of minutes.  
+2. Run the following command in the terminal to list attached storage devices:  
+   ```bash
+   df -h
+   ```  
+3. Verify that your Amazon EFS file system is mounted (e.g., `/mnt/efs/fs1` with 8.0E available storage).  
+
+---
+
+# Step 5: Terminate Resources  
+To avoid charges, terminate the resources when no longer needed.  
+
+1. Terminate EC2 Instance:  
+   - Open the Amazon EC2 console.  
+   - Select the instance you created.  
+   - Click Actions > Instance State > Terminate.  
+   - Confirm the termination.  
+   - Wait for the instance state to update to terminated.  
+
+2. Delete Amazon EFS File System:  
+   - Open the Amazon EFS console.  
+   - Select the file system you created.  
+   - Click Actions > Delete file system.  
+   - Confirm deletion by typing the file system ID and clicking Delete File System.  
+
+---
+
+ Congratulations!  
+You've successfully created your first network file system in the cloud using Amazon EFS. This scalable, shared file system grows and shrinks as you add or remove files, and you pay only for the storage you use. 
